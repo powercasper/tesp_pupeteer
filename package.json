@@ -1,0 +1,18 @@
+{
+  "name": "test_ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0",
+    "puppeteer": "^1.6.2",
+    "request-promise": "^4.2.2"
+  }
+}
