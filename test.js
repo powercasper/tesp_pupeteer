@@ -4,19 +4,21 @@ const rp = require('request-promise');
 
 describe('test', () => {
   it('should navigate and search', async () => {
-    const searchField = '#lst-ib';
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto('https://www.google.com/');
-    await page.type(searchField, 'testing tools');
-    await page.keyboard.press('Enter');
-    await page.waitForSelector('#tads .ads-visurl cite');
-    const searchValue = await page.$eval('#tads .UdQCqe', (element) => {
-      return element.innerHTML
-    })
-    await page.screenshot({path: 'example.png'});
-    expect(searchValue).to.include('www.gurock.com');
-    await browser.close();
+    (async () => {
+      const searchField = '#lst-ib';
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      await page.goto('https://www.google.com/');
+      await page.type(searchField, 'testing tools');
+      await page.keyboard.press('Enter');
+      await page.waitForSelector('#tads .ads-visurl cite');
+      const searchValue = await page.$eval('#tads .UdQCqe', (element) => {
+        return element.innerHTML
+      })
+      await page.screenshot({path: 'example.png'});
+      expect(searchValue).to.include('www.gurock.com');
+      await browser.close();
+    })();
   });
 
   it('should do api call', async () => {    
